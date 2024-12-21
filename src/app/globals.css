@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #2563eb;
+  --primary-light: #3b82f6;
+  --primary-dark: #1d4ed8;
+  --secondary: #0f172a;
+  --accent: #06b6d4;
+}
+
+@layer base {
+  body {
+    @apply text-slate-600;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-slate-900 font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-16 sm:py-24;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg font-medium transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary-dark focus-visible:ring-primary;
+  }
+
+  .btn-secondary {
+    @apply btn bg-white text-slate-900 shadow-sm ring-1 ring-slate-200 hover:bg-slate-50 focus-visible:ring-primary;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 transition duration-200;
+  }
+
+  .card-hover {
+    @apply hover:shadow-md hover:-translate-y-1;
+  }
+}
+
+/* Animations */
+.fade-up {
+  animation: fadeUp 0.5s ease-out forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Text Gradients */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary-light;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400;
+}
